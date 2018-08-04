@@ -195,7 +195,8 @@ public class SplittingTheLootScript : MonoBehaviour
         command = command.ToLowerInvariant();
         if (command.Equals("submit"))
         {
-            yield return SubmitBtn;
+            yield return null;
+            SubmitBtn.OnInteract();
             yield break;
         }
 
@@ -231,8 +232,9 @@ public class SplittingTheLootScript : MonoBehaviour
 
             foreach (var selectable in selectables)
             {
+                yield return null;
                 selectable.OnInteract();
-                yield return new WaitForSeconds(0.075f);
+                yield return new WaitForSeconds(0.1f);
             }
             // return selectables.ToArray();
             yield break;
