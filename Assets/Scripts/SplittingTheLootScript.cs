@@ -192,7 +192,7 @@ public class SplittingTheLootScript : MonoBehaviour
 
     public IEnumerator ProcessTwitchCommand(string command)
     {
-        command = command.ToLowerInvariant();
+        command = command.ToLowerInvariant().Trim();
         if (command.Equals("submit"))
         {
             yield return null;
@@ -210,14 +210,14 @@ public class SplittingTheLootScript : MonoBehaviour
             if (numbers.Distinct().Count() != numbers.Count())
             {
                 // Duplicate numbers.
-                yield return string.Format("sendtochat No duplicate numbers allowed in a command!");
+                yield return string.Format("sendtochaterror No duplicate numbers allowed in a command!");
                 yield break;
             }
 
             if (this.bags.Any(x => x.IsReadOnly && numbers.Contains(x.Index)))
             {
                 // Trying to manipulate read only bag.
-                yield return string.Format("sendtochat Don't try to cheat! You are not allowed to change the color of the initially colored bag!");
+                yield return string.Format("sendtochaterror Don't try to cheat! You are not allowed to change the color of the initially colored bag!");
                 yield break;
             }
 
@@ -240,7 +240,6 @@ public class SplittingTheLootScript : MonoBehaviour
             yield break;
         }
 
-        yield return null;
         yield break;
     }
 
