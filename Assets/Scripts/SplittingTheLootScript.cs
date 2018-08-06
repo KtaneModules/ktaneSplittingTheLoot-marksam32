@@ -87,13 +87,13 @@ public class SplittingTheLootScript : MonoBehaviour
                 return false;
             }
             bool foundSolution = false;
-            var redBags = this.bags.Where(x => x.Color == BagColor.Red).OrderBy(x => x.Label).ToList();
-            var blueBags = this.bags.Where(x => x.Color == BagColor.Blue).OrderBy(x => x.Label).ToList(); ;
+            var redBags = this.bags.Where(x => x.Color == BagColor.Red).OrderBy(x => x.Index).ToList();
+            var blueBags = this.bags.Where(x => x.Color == BagColor.Blue).OrderBy(x => x.Index).ToList(); ;
 
             foreach (var solution in solutions)
             {
-                var redBagsSolution = solution.Where(x => x.Color == BagColor.Red).OrderBy(x => x.Label).ToList();
-                var blueBagsSolution = solution.Where(x => x.Color == BagColor.Blue).OrderBy(x => x.Label).ToList();
+                var redBagsSolution = solution.Where(x => x.Color == BagColor.Red).OrderBy(x => x.Index).ToList();
+                var blueBagsSolution = solution.Where(x => x.Color == BagColor.Blue).OrderBy(x => x.Index).ToList();
 
                 if (redBags.Count() == redBagsSolution.Count() && blueBags.Count() == blueBagsSolution.Count())
                 {

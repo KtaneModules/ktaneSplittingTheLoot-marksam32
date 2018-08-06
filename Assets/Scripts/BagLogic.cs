@@ -50,10 +50,10 @@ public class BagLogic
             var solution = new List<Bag>();
             foreach (var bag in bags)
             {
-                var t = solutionTuple.Item1.Where(y => y.Label == bag.Label).FirstOrDefault();
+                var t = solutionTuple.Item1.Where(y => y.Index == bag.Index).FirstOrDefault();
                 if (t == null)
                 {
-                    t = solutionTuple.Item2.Where(y => y.Label == bag.Label).FirstOrDefault();
+                    t = solutionTuple.Item2.Where(y => y.Index == bag.Index).FirstOrDefault();
                 }
 
                 solution.Add(t ?? new Bag
@@ -61,7 +61,9 @@ public class BagLogic
                     Color = bag.Color,
                     Label = bag.Label,
                     Type = bag.Type,
-                    Value = bag.Value
+                    Value = bag.Value,
+                    Index = bag.Index,
+                    IsReadOnly = bag.IsReadOnly
                 });
             }
 
@@ -231,6 +233,8 @@ public class BagLogic
             Label = x.Label,
             Type = x.Type,
             Value = x.Value,
+            Index = x.Index,
+            IsReadOnly = x.IsReadOnly,
             Color = leftColor
         }).ToList();
 
@@ -239,6 +243,8 @@ public class BagLogic
             Label = x.Label,
             Type = x.Type,
             Value = x.Value,
+            Index = x.Index,
+            IsReadOnly = x.IsReadOnly,
             Color = rightColor
         }).ToList();
 
