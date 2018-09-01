@@ -207,6 +207,12 @@ public class SplittingTheLootScript : MonoBehaviour
             var numbers = match.Groups[1].Value.Split(' ').Select(x => int.Parse(x)).ToList();
             var color = StringToColor(match.Groups[3].Value);
 
+            if (numbers.Any(x => x < 1 || x > 7))
+            {
+                yield return string.Format("sendtochaterror Check your command! I don't understand it!");
+                yield break;
+            }
+
             if (numbers.Distinct().Count() != numbers.Count())
             {
                 // Duplicate numbers.
@@ -236,8 +242,10 @@ public class SplittingTheLootScript : MonoBehaviour
                 selectable.OnInteract();
                 yield return new WaitForSeconds(0.1f);
             }
-            // return selectables.ToArray();
-            yield break;
+        }
+        else
+        {
+            yield return string.Format("sendtochaterror Check your command! I don't understand it!");
         }
 
         yield break;

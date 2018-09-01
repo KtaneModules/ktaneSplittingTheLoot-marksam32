@@ -15,8 +15,8 @@ MonoBehaviour:
   title: Splitting The Loot
   description: "Divying up stolen loot is an explosive task.\n\nIdeas by: Elias5891\nCreated
     and impelemented by: Marksam32\r\nTwitch plays is supported.\r\n\r\nManual:\r\nPDF:
-    https://github.com/marksam32/ktaneSplittingTheLoot/blob/master/Manual/pdfs/Modules/Splitting%20The%20Loot%20%E2%80%94%20Keep%20Talking%20and%20Nobody%20Explodes%20Module.pdf\nHTML:
-    (Comming soon)\r\n\r\nModule id: SplittingTheLootModule\nGithub: https://github.com/marksam32/ktaneSplittingTheLoot\n\r\nIf
+    https://ktane.timwi.de/PDF/Splitting%20The%20Loot.pdf\nHTML: https://ktane.timwi.de/HTML/Splitting%20The%20Loot.html\n\r\nModule
+    id: SplittingTheLootModule\nGithub: https://github.com/marksam32/ktaneSplittingTheLoot\n\r\nIf
     you want to report any bugs or typos in the manual or in the module, please contact
     me on discord: Marksam32#2748"
   version: 1.0
