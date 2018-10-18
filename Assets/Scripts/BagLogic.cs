@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class BagLogic
 {
-    private static Random Rnd = new Random();
-
     private readonly IDictionary<string, int> LookupTable = new Dictionary<string, int>();
     private readonly int[][] Values = new[]
     {
@@ -102,7 +101,7 @@ public class BagLogic
 
     private string GetRandomLabel()
     {
-        return Letters[Rnd.Next(0, 10)] + Rnd.Next(1, 7);
+        return Letters[UnityEngine.Random.Range(0, 10)] + UnityEngine.Random.Range(1, 7);
     }
 
     private string GetDiamondBagLabel()
@@ -118,10 +117,10 @@ public class BagLogic
 
     private int FindEmptyBagLocation()
     {
-        var index = Rnd.Next(0, 7);
+        var index = UnityEngine.Random.Range(0, 7);
         while (bags[index] != null)
         {
-            index = Rnd.Next(0, 7);
+            index = UnityEngine.Random.Range(0, 7);
         }
 
         return index;
@@ -148,7 +147,7 @@ public class BagLogic
         for (var x = 0; x < 4; x++)
         {
             var index = FindEmptyBagLocation();
-            var amount = Rnd.Next(1, 100);
+            var amount = UnityEngine.Random.Range(1, 100);
 
             bags[index] = new Bag
             {
@@ -159,8 +158,8 @@ public class BagLogic
             };
         }
 
-        var colorRandom = Rnd.Next(0, 7);
-        bags[colorRandom].Color = (BagColor)Rnd.Next(1, 3);
+        var colorRandom = UnityEngine.Random.Range(0, 7);
+        bags[colorRandom].Color = (BagColor)UnityEngine.Random.Range(1, 3);
         bags[colorRandom].IsReadOnly = true;
     }
 
