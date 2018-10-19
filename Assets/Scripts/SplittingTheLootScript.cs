@@ -187,13 +187,13 @@ public class SplittingTheLootScript : MonoBehaviour
     }
 
 #pragma warning disable 414
-    private readonly string TwitchHelpMessage = "Set the color of a bag using !{0} set bag 5 red, !{0} set bag 3 8 2 blue or !{0} set bag 1 normal, etc. The bags are numbered in reading order. Submit your answer using !{0} submit.";
+    private readonly string TwitchHelpMessage = "Set the color of a bag using !{0} set bag 5 red, !{0} set bag 3 8 2 blue or !{0} set bag 1 normal, etc. The bags are numbered in reading order. Submit your answer using !{0} split.";
 #pragma warning restore 414
 
     public IEnumerator ProcessTwitchCommand(string command)
     {
         command = command.ToLowerInvariant().Trim();
-        if (command.Equals("submit"))
+        if (command.Equals("submit") || command.Equals("split"))
         {
             yield return null;
             SubmitBtn.OnInteract();
