@@ -135,7 +135,7 @@ public class SplittingTheLootScript : MonoBehaviour
 
     private static bool ValidateAnswer(List<Bag> answer, List<Bag> solution)
     {
-        for (int x = 0; x < answer.Count; ++x)
+        for (var x = 0; x < answer.Count; ++x)
         {
             if (answer[x].Label != solution[x].Label)
             {
@@ -297,5 +297,21 @@ public class SplittingTheLootScript : MonoBehaviour
             default:
                 throw new ArgumentException("Unknown bag color " + color);
         }
+    }
+
+    private IEnumerator TwitchHandleForcedSolve()
+    {
+        var solution = bagLogic.GetSolutions().PickRandom();
+
+        for (var i = 0; i < solution.Count; i++)
+        {
+            var noOfClicks = FindNumberOfClicks(bags[i].Color, solution[i].Color);
+            for(var x = 0; x < noOfClicks; ++x)
+            {
+                Bags[i].OnInteract();
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+        SubmitBtn.OnInteract();
     }
 }
